@@ -1,0 +1,16 @@
+{
+	"id": "test-3",
+	"header": {
+		"title": "Ma popin de test 3"
+	},
+	"content": {
+		"title": "content test 3",
+		"img": {
+			"src": "/static/assets/Tadzio-1er-jour.jpg"
+		}
+	},
+	"footer": {
+		"title": "footer 3",
+		"description": "..."
+	}
+}
