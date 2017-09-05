@@ -15,6 +15,9 @@
 
     <popin-list v-if="popinIsOpen" dataJson="popin-list">
     </popin-list>
+
+    <!-- <popin v-if="popinIsOpen" dataJson="popin-test-3">
+    </popin> -->
   </div>
 </template>
 
@@ -22,6 +25,7 @@
 import {TweenMax} from 'gsap';
 import Popin from '@/components/Popin';
 import PopinList from '@/components/PopinList';
+import store from '@/actions/store.js';
 
 export default {
   name: 'app',
@@ -30,7 +34,7 @@ export default {
 
   data () {
     return {
-      popinIsOpen: false
+      store: store.state
     }
   },
 
@@ -38,19 +42,13 @@ export default {
     this.duration = 0.8;
   },
 
+  computed: {
+    popinIsOpen: function() {
+      return store.getState('popinIsOpen');
+    }
+  },
+
   methods: {
-    onTogglePopin(e) {
-      this.popinIsOpen = !this.popinIsOpen;
-    },
-
-    onOpenPopin(e) {
-      this.popinIsOpen = true;
-    },
-
-    onClosePopin(e) {
-      this.popinIsOpen = false;
-    },
-
     // --------
     // ENTERING
     // --------

@@ -4,11 +4,11 @@
       <canvas ref="canvas" width="200" height="200" class="canvas"></canvas>
 
       <div ref="loader" class="page-loader">
-        <h1 @click="onClickTitle">{{ percentLoaded }}</h1>
+        <h1>{{ percentLoaded }}</h1>
       </div>  
 
       <div ref="content">
-        <h2 @click="onClickTitle">{{ id || 'All Pages'}}</h2>
+        <h2>{{ id || 'All Pages'}}</h2>
 
         <router-link class="nav-link" to="/">Home</router-link>
         <router-link v-if="$route.path !== '/page'" class="nav-link" to="/page">Pages</router-link>
@@ -20,7 +20,7 @@
         <image-loader v-if="pageLoaded" src="/static/assets/logo.png"></image-loader>
 
         
-        <button @click="$parent.onTogglePopin">Open Popin test</button>
+        <button @click="openPopin">Open Popin test</button>
       </div>
     </div>
   </div>
@@ -30,6 +30,8 @@
   import Vue from 'vue';
   import ImageLoader from '@/components/ImageLoader';
   import {TImelineMax, TweenLite} from 'gsap';
+  import store from '@/actions/store.js';
+
   export default {
     name: 'page',
     props: ['id'],
@@ -37,8 +39,7 @@
     data () {
       return {
         pageLoaded: false,
-        percentLoaded: 0,
-        popinIsOpen: false
+        percentLoaded: 0
       }
     },
     created () {
@@ -50,9 +51,8 @@
       this.pageLoad();
     },
     methods: {
-      onClickTitle: function (e){
-        console.log('click', e);
-        Vue.delete(this);
+      openPopin: function() {
+        store.setState('popinIsOpen', true);
       },
 
       pageLoad: function () {

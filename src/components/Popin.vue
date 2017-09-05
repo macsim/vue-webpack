@@ -1,7 +1,7 @@
 <template>
   <div class="popin">
     <div class="popin-wrapper">
-      <div class="popin-close" @click="onTogglePopin">
+      <div class="popin-close" @click="closePopin">
         close
         <span></span><span></span>
       </div>
@@ -34,7 +34,7 @@
         </div>
       </footer>
     </div>
-    <div class="popin-overlay" @click="onTogglePopin"></div>
+    <div class="popin-overlay" @click="closePopin"></div>
   </div>
 </template>
 
@@ -42,6 +42,7 @@
   import Vue from 'vue';
   import VueResource from 'vue-resource';
   import DataLoader from '@/components/DataLoader';
+  import store from '@/actions/store.js';
 
   Vue.use(VueResource);
 
@@ -61,28 +62,34 @@
     },
 
     methods: {
-      onTogglePopin(e) {
-        this.$parent.onTogglePopin(e);
+      closePopin(e) {
+        store.setState('popinIsOpen', false);
       }
     }
   }
 </script>
-<style>
-#app .popin-wrapper .image-wrapper {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-}
-#app .popin-wrapper .image{
-  width: auto;
-  max-width: 100%;
-  display: inline-block;
-  position: relative;
+
+<style lang="scss">
+#app {
+  .popin-wrapper {
+    .image-wrapper {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .image{
+      width: auto;
+      max-width: 100%;
+      display: inline-block;
+      position: relative;
+    }
+  }
 }
 </style>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
 .popin,
 .popin-wrapper,
 .popin-overlay {
@@ -161,24 +168,25 @@
   z-index: 100;
   cursor: pointer;
   box-sizing: border-box;
-}
 
-.popin-close span {
-  display: block;
-  position: relative;
-  width: 50%;
-  height: 1px;
-  margin-top: -1px;
-  background: black;
-  left: 50%;
-  top: calc(50% + 1px);
-  transform-origin: center center;
-}
+  span {
+    display: block;
+    position: relative;
+    width: 50%;
+    height: 1px;
+    margin-top: -1px;
+    background: black;
+    left: 50%;
+    top: calc(50% + 1px);
+    transform-origin: center center;
 
-.popin-close span:nth-child(1) {
-  transform: translateX(-50%) translateY(-50%) rotate(45deg);
-}
-.popin-close span:nth-child(2) {
-  transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    &:nth-child(1) {
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    }
+  }
 }
 </style>

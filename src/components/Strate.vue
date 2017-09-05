@@ -14,16 +14,26 @@
         <p v-if="strate.leaveAnimation">LEAVE animation: <b>{{ strate.leaveAnimation }}</b></p>
 
         <router-link class="nav-link" to="/page/number-one">Page Number One</router-link>
+
+        <button @click="openPopin">Open Popin test</button>
       </div>
   </div>
 </template>
 
 <script>
   import AnimatedNumber from '@/components/AnimatedNumber';
+  import store from '@/actions/store.js';
+
   export default {
     components: {AnimatedNumber},
     name: 'strate',
-    props: ['strate']
+    props: ['strate'],
+
+    methods: {
+      openPopin: function() {
+        store.setState('popinIsOpen', true);
+      }
+    }
   }
 </script>
 

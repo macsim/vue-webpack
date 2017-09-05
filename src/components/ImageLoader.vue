@@ -122,11 +122,11 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 .image-wrapper {
   position: relative;
-    width: 200px;  
-    height: 200px;
+  width: 200px;  
+  height: 200px;
   display: block;
   margin: 20px auto;
   background-color: rgba(255,255,255, 0.2);
@@ -137,14 +137,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-}
-.image-loader p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  color: #CCC;
-  font-size: 18px;
+
+  p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: #CCC;
+    font-size: 18px;
+  }
 }
 </style>
