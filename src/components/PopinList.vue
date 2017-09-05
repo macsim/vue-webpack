@@ -28,9 +28,9 @@
 
     <ul class="popin-bullet-list">
       <li class="popin-bullet" :class="{current: isCurrent(index)}" v-for="popin, index in datas">
-        <button @click="onByIndex( index )">
+        <div class="button" @click="onByIndex( index )">
           {{ index + 1 }}
-        </button>
+        </div>
       </li>
     </ul>
   </div>
@@ -49,15 +49,16 @@
     name: 'popin-list',
     extends: DataLoader,
     components: {Popin, ImageLoader},
+    props: ['defaultIndex'],
 
     data () {
       return {
-        current: 1
+        current: parseInt(this.defaultIndex, 10) || 0
       }
     },
 
     created () {
-      console.log('%cCreated PopinList:', 'color: gray', this.dataJson);
+      console.log('%cCreated PopinList:', 'color: gray', this.dataJson, this.defaultIndex);
     },
 
     computed: {
@@ -196,7 +197,7 @@
   margin: 0;
   padding: 0;
 
-  button {
+  .button {
     display: block;
     position: relative;
     text-indent: 100px;
@@ -229,7 +230,7 @@
     }
   }
 
-  &.current button:before {
+  &.current .button:before {
     background: white;
   }
 }

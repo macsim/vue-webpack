@@ -13,11 +13,8 @@
       <router-view :key='$route.fullPath'></router-view>
     </transition>
 
-    <popin-list v-if="popinIsOpen" dataJson="popin-list">
+    <popin-list v-if="popinIsOpen" defaultIndex="3" dataJson="popin-list">
     </popin-list>
-
-    <!-- <popin v-if="popinIsOpen" dataJson="popin-test-3">
-    </popin> -->
   </div>
 </template>
 

@@ -51,14 +51,19 @@
         var first = 0;
         var tl = new TimelineMax({
           onUpdate: () => {
-            console.log('update', this.percentLoaded, this.$refs.canvas.width, this.$refs.canvas.height);
+            // if (this.$refs.canvas) {
+            //   console.log('update', this.percentLoaded, this.$refs.canvas.width, this.$refs.canvas.height);
+            // }
           },
           ease: Elastic.easeOut
         });
 
         tl.from(obj, 1, {i: 1, start: 5, radius: 80, stroke: 40, ease: Sine.easeOut, onUpdate: (self) => {
-          this.drawCanvas(this.$refs.canvas, obj.i, obj.start, obj.radius, obj.stroke);
+          if (this.$refs.canvas) {
+            this.drawCanvas(this.$refs.canvas, obj.i, obj.start, obj.radius, obj.stroke);
+          }
         }, onUpdateParams: ['{self}']});
+
         tl.fromTo(this.$refs.loading, 0.2, {autoAlpha: 0, scale: 0, x: '-50%', y: '-50%'}, {autoAlpha: 1, scale: 1, x: '-50%', y: '-50%', ease: Power4.easeIn}, 0);
         tl.to(this.$refs.canvas, 0.2, {scale: 1.2, autoAlpha: 0, ease: Sine.easeOut}, 0.8);
         tl.to(this.$refs.loader, 0.1, {autoAlpha: 0, scale: 1, ease: Power4.easeIn}, 0.9);
@@ -71,9 +76,11 @@
           this.percentLoaded = loader.loading.toFixed(0);
           tl.time(loader.loading / 100);
         }, onComplete: () => {
-          this.imageLoaded = true;
-          TweenLite.to(this.$refs.image, 0.5, {autoAlpha: 1, scale: 1, delay: 0.1});
-          tl.time(100);
+          if (this.$refs.image) {
+            this.imageLoaded = true;
+            TweenLite.to(this.$refs.image, 0.5, {autoAlpha: 1, scale: 1, delay: 0.1});
+            tl.time(100);
+          }
         }});
       },
 
