@@ -61,16 +61,10 @@
         var obj = {i: 0.0001, start: 1.5, radius: 90, stroke: 1};
         var tl = new TimelineMax({
           onUpdate: () => {
-            this.drawBezier(this.$refs.canvas, bezier);
-
-            // this.drawCanvas(this.$refs.canvas, obj.i, obj.start, obj.radius, obj.stroke);            
+            this.drawBezier(this.$refs.canvas, bezier);           
           },
           ease: Power2.easeInOut
         });
-
-        // tl.from(obj, 1, {i: 1, start: 5, radius: 80, stroke: 40, ease: Sine.easeOut, onUpdate: (self) => {
-        //   this.drawCanvas(this.$refs.canvas, obj.i, obj.start, obj.radius, obj.stroke);
-        // }, onUpdateParams: ['{self}']});
 
         var bezierStart = {};
 
@@ -145,23 +139,6 @@
         }});
       },
 
-      drawCanvas: function(canvas, interval, start, radius, stroke) {
-
-        var context = canvas.getContext('2d');
-        var centerX = canvas.width / 2;
-        var centerY = canvas.height / 2;
-        var end = start - (interval * 2);
-        
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.beginPath();
-        context.arc(centerX, centerY, radius, start * Math.PI, end * Math.PI, false);
-        context.closePath();
-
-        context.lineWidth = stroke;
-        context.strokeStyle = '#CCC';
-
-        context.stroke();
-      },
       drawBezier: function(canvas, obj) {
         var context = canvas.getContext('2d');
 
@@ -180,21 +157,6 @@
 
         context.fill();
         context.stroke();
-      }
-    },
-    watch: {
-      'id' (newId, oldId) {
-        if (newId !== oldId) {
-          console.log('page has changed - new Page laded: %c' + newId + ' %c' + oldId, 'color:green;font-weight:bold;', 'color:red;text-decoration: line-through;');
-          this.pageLoaded = false;
-          this.percentLoaded = 0;
-          this.pageLoad();
-        }
-      },
-      'pageLoaded' (newPage, oldPage) {
-        if (newPage !== oldPage) {
-          console.log('page has changed - new Page laded: %c' + newPage + ' %c' + oldPage, 'color:green;font-weight:bold;', 'color:red;text-decoration: line-through;');
-        }
       }
     }
   }
