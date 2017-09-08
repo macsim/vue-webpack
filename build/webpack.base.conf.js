@@ -2,7 +2,6 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var OfflinePlugin = require('offline-plugin');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -27,17 +26,6 @@ module.exports = {
       'assets': resolve(__dirname, 'assets')
   }
   },
-  plugins: [
-    new OfflinePlugin({
-      caches: 'all',
-      relativePaths: true,
-      ecludes: ['**/.*', '**/*.map'],
-      ServiceWorker: {
-        entry: resolve('src') + 'sw.js',
-        publicPath: '/sw.js'
-      }
-    })
-  ],
   module: {
     rules: [
       {
