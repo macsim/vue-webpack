@@ -1,0 +1,21 @@
+{
+	"header": {
+		"title": "Titre"
+	},
+	"parent": "",
+	"items": [
+		{
+			"title": "Home",
+			"url": "/"
+		},
+		{
+			"title": "Page",
+			"url": "/page",
+			"children": "navigation-page"
+		},
+		{
+			"title": "Number One",
+			"url": "/page/number-one"
+		}
+	]
+}

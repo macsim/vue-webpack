@@ -27,6 +27,10 @@
     },
 
     methods: {
+      reloadDatas(json) {
+        this.datasReady = false;
+        this.getDatas('/static/datas/' + json + '.json');
+      },
 
       onDatasLoaded(to, from) {
         console.log('%conDatasLoaded', 'color:green',  this.datas, to, from);

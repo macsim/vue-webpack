@@ -2,7 +2,7 @@ export default {
 	debug: true,
 	state: {
 		popinIsOpen: false,
-		popinListIsOpen: false
+		navIsOpen: false,
 	},
 	getState( key ) {
 		return this.state[key];

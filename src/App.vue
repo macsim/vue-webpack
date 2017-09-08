@@ -15,6 +15,12 @@
 
     <popin-list v-if="popinIsOpen" defaultIndex="3" dataJson="popin-list">
     </popin-list>
+
+    <div class="burger" @click="openNav">
+      menu
+    </div>
+
+    <navigation v-if="navIsOpen" dataJson="navigation"></navigation>
   </div>
 </template>
 
@@ -22,12 +28,13 @@
 import {TweenMax} from 'gsap';
 import Popin from '@/components/Popin';
 import PopinList from '@/components/PopinList';
+import Navigation from '@/components/Navigation';
 import store from '@/actions/store.js';
 
 export default {
   name: 'app',
 
-  components: {Popin, PopinList},
+  components: {Popin, PopinList, Navigation},
 
   data () {
     return {
@@ -42,10 +49,17 @@ export default {
   computed: {
     popinIsOpen: function() {
       return store.getState('popinIsOpen');
+    },
+    navIsOpen: function() {
+      return store.getState('navIsOpen');
     }
   },
 
   methods: {
+    openNav: function() {
+      store.setState('navIsOpen', true);
+    },
+
     // --------
     // ENTERING
     // --------
@@ -182,5 +196,12 @@ html, body {
   text-align: center;
   color: #2c3e50;
   margin-top: 0;
+}
+
+.burger {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 400;
 }
 </style>
