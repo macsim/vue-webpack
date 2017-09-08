@@ -69,7 +69,7 @@
         tl.to(this.$refs.loader, 0.1, {autoAlpha: 0, scale: 1, ease: Power4.easeIn}, 0.9);
         tl.pause();
 
-        TweenLite.set(this.$refs.image, {autoAlpha: 0, scale: 0.5});
+        TweenLite.set(this.$refs.image, {autoAlpha: 0, scale: 0.9});
         TweenLite.set(this.$refs.loader, {autoAlpha: 1, scale: 1});
 
         TweenLite.to(loader, 0.8, {loading: 100, onUpdate: () => {

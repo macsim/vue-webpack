@@ -15,11 +15,8 @@
         <router-link v-if="$route.path !== '/page/number-one'" class="nav-link" to="/page/number-one">Page Number One</router-link>
         <router-link v-if="$route.path !== '/page/number-two'" class="nav-link" to="/page/number-two">Page Number Tow</router-link>
 
-        <image-loader v-if="pageLoaded" src="/static/assets/logo.png"></image-loader>
+        <portfolio dataJson="portfolio" defaultFilter="web"></portfolio>
 
-        <image-loader v-if="pageLoaded" src="/static/assets/logo.png"></image-loader>
-
-        
         <button @click="openPopin">Open Popin test</button>
       </div>
     </div>
@@ -28,14 +25,14 @@
 
 <script>
   import Vue from 'vue';
-  import ImageLoader from '@/components/ImageLoader';
+  import Portfolio from '@/components/Portfolio';
   import {TImelineMax, TweenLite} from 'gsap';
   import store from '@/actions/store.js';
 
   export default {
     name: 'page',
     props: ['id'],
-    components: {ImageLoader},
+    components: {Portfolio},
     data () {
       return {
         pageLoaded: false,
@@ -197,8 +194,8 @@
     height: 100%;
     background: #333;
     padding: 100px;
-    overflow: hidden;
-    display: table;
+    overflow-y: scroll;
+    display: block;
 
     box-sizing: border-box;
   }
@@ -232,13 +229,14 @@
   }
 
   .page-inner {
-    display: table-cell;
+    display: inline-block;
     text-align: center;
     vertical-align: middle;
   }
 
   .nav-link {
-    margin-bottom: 20px;
+    display: inline-block;
+    line-height: 2;
   }
 
   /*.canvas {

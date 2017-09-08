@@ -162,4 +162,9 @@
     right: 50%;
     margin-right: -50px;
   }
+
+  .nav-link {
+    line-height: 2;
+    display: inline-block;
+  }
 </style>
