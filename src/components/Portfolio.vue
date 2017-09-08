@@ -7,19 +7,44 @@
           {{ currentFilterDatas.title }}
         </div>
 
-        <div class="filter-item" @click="shuffle()">
-          Shuffle
+        <div class="filter-item" @click="sortDirectionReverse">
+          direction
         </div>
 
+        <div class="filter-item" @click="toggleGridSize">
+          toggle size
+        </div>
+      </div>
+
+      <div class="filter-list">
+
+        <div class="filter-item" @click="shuffle()">
+          shuffle
+        </div>
+
+        <div class="filter-item" @click="sortBy('title')">
+          Titre
+        </div>
+
+        <div class="filter-item" @click="sortBy('order')">
+          Ordre
+        </div>
+
+        <div class="filter-item" @click="sortBy('year')">
+          Année
+        </div>
+      </div>
+
+      <div class="filter-list">
         <div v-for="item, index in datas.filters" class="filter-item" @click="setCurrentFilter(item.id)" :class="{current: isCurrentFilter(item.id)}">
           {{ item.title }}
         </div>
       </div>
 
-      <transition-group name="portfolio-list" class="portfolio-list" tag="div">
+      <transition-group name="portfolio-list" :class="{small: isGridSmall}" class="portfolio-list" tag="div">
         <div :key="item.id" v-for="item, index in itemsInSelectedCategorie(items, currentFilter)" class="portfolio-item" :class="item.className">
           <image-loader src="/static/assets/logo.png"></image-loader>
-
+          {{ item.title }} - {{ item.year }} - {{ item.order }}
           <ul class="categorie-list">
             <li v-for="cat, index in item.categories" class="categorie-item"  :class="{current: isCurrentFilter(cat)}">{{ getCategorieById(cat).title }}</li>
           </ul>
@@ -37,7 +62,7 @@
   import VueResource from 'vue-resource';
   import DataLoader from '@/components/DataLoader';
   import ImageLoader from '@/components/ImageLoader';
-  import {findKey, shuffle} from 'lodash';
+  import {findKey, shuffle, sortBy} from 'lodash';
 
   Vue.use(VueResource);
 
@@ -50,6 +75,8 @@
     data () {
       return {
         currentFilter: this.defaultFilter || 0,
+        sortDirection: 0,
+        gridSmall: 0,
         items: []
       }
     },
@@ -62,6 +89,10 @@
       currentFilterDatas: function() {
         this.items = this.datas.items;
         return this.getCategorieById( this.currentFilter );
+      },
+      isGridSmall: function() {
+        console.log('isGridSmall', this.gridSmall);
+        return this.gridSmall;
       }
     },
 
@@ -70,9 +101,24 @@
         return this.currentFilter === index;
       },
 
+      toggleGridSize: function() {
+        this.gridSmall = !this.gridSmall;
+      },
+
       shuffle () {
         this.items = this.datas.items;
         this.items = shuffle(this.items);
+      },
+
+      sortBy(properties) {
+        this.items = this.datas.items;
+        this.items = sortBy(this.items, properties).reverse();
+      },
+
+      sortDirectionReverse() {
+        this.sortDirection = !this.sortDirection;
+
+        this.items = this.items.reverse();
       },
 
       setCurrentFilter(newValue) {
@@ -87,7 +133,7 @@
         return array.filter(function (item) {
           return item.categories.indexOf(cat) !== -1;
         });
-      }
+      },
     }
   }
 </script>
@@ -101,6 +147,7 @@
   width: 930px;
   text-align: left;
 
+
   &-item {
     display: block;
     float: left;
@@ -110,7 +157,8 @@
     background: #EEE;
     box-sizing: border-box;
     vertical-align: top;
-    transition: all 1s;
+    transition: all 0.8s ease-in-out;
+    text-align: center;
 
     &.col1on3 {
       width: 300px;
@@ -123,13 +171,17 @@
     &.col3on3 {
       width: 920px;
     }
+
+    .portfolio-list.small & {
+      width: 920px;
+    }
   }
 }
 
 .portfolio-list-enter, .portfolio-list-leave-to
 /* .portfolio-list-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transform: translateY(1000px)scale(0.3);
+  transform: translateY(1000px) scale(0.3);
 }
 .portfolio-list-leave-active {
   position: absolute;
