@@ -15,16 +15,9 @@ export default new Router({
         path: '/',
         name: 'Home',
         component: Home
-
     },
     {
-        path: '/page',
-        name: 'PageList',
-        component: Page,
-        props: true
-    },
-    {
-        path: '/page/:id',
+        path: '/page/:id?',
         name: 'Page',
         component: Page,
         props: true

@@ -61,7 +61,9 @@
         var obj = {i: 0.0001, start: 1.5, radius: 90, stroke: 1};
         var tl = new TimelineMax({
           onUpdate: () => {
-            this.drawBezier(this.$refs.canvas, bezier);           
+            if (this.$refs.canvas) {
+              this.drawBezier(this.$refs.canvas, bezier);
+            }
           },
           ease: Power2.easeInOut
         });
@@ -134,7 +136,10 @@
           tl.time(loader.loading / 100);
         }, onComplete: () => {
           this.pageLoaded = true;
-          TweenLite.to(this.$refs.content, 0.5, {autoAlpha: 1, scale: 1, delay: 0.1});
+
+          if (this.$refs.content) {
+            TweenLite.to(this.$refs.content, 0.5, {autoAlpha: 1, scale: 1, delay: 0.1});
+          }
           tl.time(100);
         }});
       },
