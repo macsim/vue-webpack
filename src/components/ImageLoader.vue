@@ -6,7 +6,7 @@
     </div>
 
     <div v-show="imageLoaded" ref="image">
-      <img class="image" ref="img" :src="src" :alt="alt"/>
+      <img class="image" ref="img" :src="src" alt="Defautl Alt"/>
     </div>
   </div>
 </template>

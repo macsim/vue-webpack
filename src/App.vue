@@ -203,5 +203,7 @@ html, body {
   top: 0;
   left: 0;
   z-index: 400;
+  background: white;
+  padding: 10px;
 }
 </style>

@@ -1,0 +1,22 @@
+{
+  "lang": "fr",
+  "dir": "ltr",
+  "name": "Vue Webpack",
+  "description": "This app helps you donate to worthy causes.",
+  "short_name": "vue webpack",
+  "icons": [{
+    "src": "/static/assets/lo_def.ico",
+    "sizes": "16x16 32x32 48x48",
+    "type": "image/ico"
+  },{
+    "src": "/static/assets/hi_def.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "scope": "/",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "black",
+  "background_color": "white"
+}

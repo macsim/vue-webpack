@@ -16,8 +16,6 @@
         <router-link v-if="$route.path !== '/page/number-two'" class="nav-link" to="/page/number-two">Page Number Tow</router-link>
 
         <portfolio dataJson="portfolio" defaultFilter="web"></portfolio>
-
-        <button @click="openPopin">Open Popin test</button>
       </div>
     </div>
   </div>
