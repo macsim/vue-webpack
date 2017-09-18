@@ -30,6 +30,8 @@
 			"id": "test-1",
 			"categories": ["print", "web2", "dev", "test"],
 			"title": "Project 21",
+			"src": "/static/assets/img-1.jpg",
+			"tint": "red",
 			"order": 20,
 			"year": 2017
 		},
@@ -38,6 +40,8 @@
 			"categories": ["dev"],
 			"className": "col2on3",
 			"title": "Project 1",
+			"src": "/static/assets/img-2.jpg",
+			"tint": "red",
 			"order": 0,
 			"year": 2016
 		},
@@ -46,6 +50,8 @@
 			"categories": ["web2", "dev"],
 			"className": "col2on3",
 			"title": "Project 2",
+			"src": "/static/assets/img-3.jpg",
+			"tint": "blue",
 			"order": 1,
 			"year": 2017
 		},
@@ -53,6 +59,8 @@
 			"id": "test-4",
 			"categories": ["print2"],
 			"title": "Project 3",
+			"src": "/static/assets/img-4.jpg",
+			"tint": "blue",
 			"order": 2,
 			"year": 2017
 		},
@@ -60,6 +68,8 @@
 			"id": "test-5",
 			"categories": ["print", "web2", "dev"],
 			"title": "Project 4",
+			"src": "/static/assets/img-5.jpg",
+			"tint": "blue",
 			"order": 3,
 			"year": 2017
 		},
@@ -67,6 +77,8 @@
 			"id": "test-6",
 			"categories": ["dev"],
 			"title": "Project 5",
+			"src": "/static/assets/img-6.jpg",
+			"tint": "blue",
 			"order": 4,
 			"year": 2015
 		},
@@ -74,6 +86,8 @@
 			"id": "test-7",
 			"categories": ["web", "dev"],
 			"title": "Project 6",
+			"src": "/static/assets/img-1.jpg",
+			"tint": "blue",
 			"order": 5,
 			"year": 2016
 		},
@@ -81,6 +95,8 @@
 			"id": "test-8",
 			"categories": ["print"],
 			"title": "Project 7",
+			"src": "/static/assets/img-2.jpg",
+			"tint": "blue",
 			"order": 6,
 			"year": 2017
 		},
@@ -88,6 +104,8 @@
 			"id": "test-9",
 			"categories": ["print2", "web2", "dev"],
 			"title": "Project 8",
+			"src": "/static/assets/img-3.jpg",
+			"tint": "blue",
 			"order": 7,
 			"year": 2017
 		},
@@ -95,6 +113,8 @@
 			"id": "test-10",
 			"categories": ["dev"],
 			"title": "Project 9",
+			"src": "/static/assets/img-4.jpg",
+			"tint": "blue",
 			"order": 8,
 			"year": 2015
 		},
@@ -102,6 +122,8 @@
 			"id": "test-11",
 			"categories": ["web", "dev"],
 			"title": "Project 10",
+			"src": "/static/assets/img-5.jpg",
+			"tint": "blue",
 			"order": 9,
 			"year": 2015
 		},
@@ -109,6 +131,8 @@
 			"id": "test-12",
 			"categories": ["print2"],
 			"title": "Project 11",
+			"src": "/static/assets/img-6.jpg",
+			"tint": "blue",
 			"order": 10,
 			"year": 2016
 		},
@@ -117,6 +141,8 @@
 			"categories": ["print", "test"],
 			"className": "col2on3",
 			"title": "Project 12",
+			"src": "/static/assets/img-1.jpg",
+			"tint": "blue",
 			"order": 11,
 			"year": 2017
 		},
@@ -125,6 +151,8 @@
 			"categories": ["dev", "test"],
 			"className": "col2on3",
 			"title": "Project 13",
+			"src": "/static/assets/img-2.jpg",
+			"tint": "blue",
 			"order": 12,
 			"year": 2016
 		},
@@ -132,6 +160,8 @@
 			"id": "test-15",
 			"categories": ["web", "dev"],
 			"title": "Project 14",
+			"src": "/static/assets/img-3.jpg",
+			"tint": "blue",
 			"order": 13,
 			"year": 2015
 		},
@@ -139,6 +169,8 @@
 			"id": "test-16",
 			"categories": ["print"],
 			"title": "Project 15",
+			"src": "/static/assets/img-4.jpg",
+			"tint": "blue",
 			"order": 14,
 			"year": 2016
 		},
@@ -147,6 +179,8 @@
 			"categories": ["print2"],
 			"className": "col3on3",
 			"title": "Project 16",
+			"src": "/static/assets/img-5.jpg",
+			"tint": "blue",
 			"order": 15,
 			"year": 2017
 		},
@@ -154,6 +188,8 @@
 			"id": "test-18",
 			"categories": ["web2","test"],
 			"title": "Project 17",
+			"src": "/static/assets/img-6.jpg",
+			"tint": "blue",
 			"order": 16,
 			"year": 2017
 		},
@@ -161,6 +197,8 @@
 			"id": "test-19",
 			"categories": ["dev"],
 			"title": "Project 18",
+			"src": "/static/assets/img-1.jpg",
+			"tint": "blue",
 			"order": 17,
 			"year": 2015
 		},
@@ -168,6 +206,8 @@
 			"id": "test-20",
 			"categories": ["web"],
 			"title": "Project 19",
+			"src": "/static/assets/img-2.jpg",
+			"tint": "blue",
 			"order": 18,
 			"year": 2015
 		},
@@ -176,6 +216,8 @@
 			"categories": ["dev"],
 			"className": "col2on3",
 			"title": "Project 20",
+			"src": "/static/assets/img-3.jpg",
+			"tint": "blue",
 			"order": 19,
 			"year": 2017
 		}
