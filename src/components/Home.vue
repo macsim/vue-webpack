@@ -40,12 +40,12 @@ export default {
             'name': 'page 2',
             'theme': 'page',
             'enterAnimation': 'slideFromBottom',
-            'leaveAnimation': 'slideToBottom'
+            'leaveAnimation': 'slideToTop'
           },
           {
             'name': 'page 3',
             'theme': 'page',
-            'enterAnimation': 'slideFromTop',
+            'enterAnimation': 'slideFromBottom',
             'leaveAnimation': 'slideToTop'
           },
           {
@@ -109,9 +109,13 @@ export default {
 
     },
 
+    onWheel (e) {
+      this.$refs.scrollArea.scrollTop += e.deltaY;
+      this.onScroll();
+    },
+
     onScroll (e) {
-      this.scrollY = 
-      this.$refs.scrollArea.scrollTop;
+      this.scrollY = this.$refs.scrollArea.scrollTop;
       this.scrolled = this.scrollY > 0;
       this.time = Math.max(0, this.scrollY / this.maxScrollHeight * this.tl.totalDuration());
       this.tl.time(this.time);
@@ -275,6 +279,7 @@ export default {
   mounted () {
 
     this.$refs.scrollArea.addEventListener('scroll', this.onScroll);
+    this.$refs.scrollArea.addEventListener('wheel', this.onWheel, {passive: true});
     window.addEventListener('resize', this.onResize);
 
     this.onResize();
@@ -284,7 +289,9 @@ export default {
   },
 
   beforeDestroy() {
+    this.$refs.strates.style.height = window.innerHeight + 'px';
     this.$refs.scrollArea.removeEventListener('scroll', this.onScroll);
+    this.$refs.scrollArea.removeEventListener('wheel', this.onWheel);
   },
 
   destroyed () {
@@ -308,13 +315,13 @@ export default {
 <style scoped>
   .scroll-area {
     /*position: absolute;  USE THIS ONLY ON MOBILE */
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    z-index: 1;
+    /*z-index: 1;*/
 
     will-change: scroll;
     -webkit-overflow-scrolling: touch;
