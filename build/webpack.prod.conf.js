@@ -31,9 +31,10 @@ var webpackConfig = merge(baseWebpackConfig, {
       relativePaths: true,
       ecludes: ['**/.*', '**/*.map'],
       ServiceWorker: {
-        entry: resolve('src') + 'sw.js',
+        entry: path.join(__dirname, '..', 'src') + 'sw.js',
         publicPath: '/sw.js'
-      }
+      },
+      AppCache: false
     }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
